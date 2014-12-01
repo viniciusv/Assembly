@@ -36,6 +36,7 @@ inienq:
 fimenq:
 	mov edx,OFFSET msg2
 	call WriteString
+	mov eax,n1
 	call WriteDec
 	ret
 lenum ENDP
