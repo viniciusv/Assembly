@@ -27,7 +27,7 @@ somaArray PROC
 	mov eax,0
 soma:
 	add eax,[edi]
-	add edi,TYPE array[
+	add edi,TYPE array
 	loop soma	
 	ret
 somaArray ENDP
