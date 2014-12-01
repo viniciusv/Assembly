@@ -27,7 +27,7 @@ comparaMaior PROC
 	push edi
 	push ecx
 	mov eax,[edi]
-inicio
+inicio:
 	add edi,TYPE array
 	.IF ([edi] > eax)
 		mov eax,[edi]
@@ -45,7 +45,7 @@ comparaMenor PROC
 	push edi
 	push ecx
 	mov eax,[edi]
-inicio
+inicio:
 	add edi,TYPE array
 	.IF ([edi] < eax)
 		mov eax,[edi]
