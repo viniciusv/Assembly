@@ -17,7 +17,8 @@ includelib c:\masm32\lib\Irvine32.lib
 msg BYTE "Entre com um numero: ",0
 msg2 BYTE "Numero Achado!",0
 msg3 BYTE "Numero nao achado!",0
-array DWORD 0,0,0,0,0,0,0,0,0,0
+msg4 BYTE "Entre com um numero a ser acahado: ",0
+array DWORD 10 DUP(0)
 n DWORD ?
 
 .code
@@ -45,11 +46,11 @@ arrayle:
 learray ENDP
 
 lenum PROC
-	mov edx, OFFSET msg		; edx = primeira posicao da string msg
-	call WriteString		; Exibe msg
-	call ReadInt	 		; eax = numero do teclado
+	mov edx, OFFSET msg4	
+	call WriteString	
+	call ReadInt	 		
 	mov n,eax
-	ret				; ebx = eax
+	ret				
 lenum ENDP
 
 pesquisa PROC
