@@ -22,6 +22,7 @@ principal PROC
 	call leData
 	mov eax,dia
 	call comparaDia
+	mov eax,mes
 	call comparaMes
 	INVOKE ExitProcess,0
 principal ENDP
