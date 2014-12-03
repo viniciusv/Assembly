@@ -11,7 +11,7 @@ includelib c:\masm32\lib\kernel32.lib
 includelib c:\masm32\lib\Irvine32.lib
 
 .data
-flag DWORD 0				; Flag de fim double word com sinal
+flag DWORD 0				
 cont DWORD 0
 media DWORD 0 
 msg  BYTE "Entre com um numero: ",0
@@ -20,33 +20,31 @@ msg2  BYTE "Media: ",0
 .code
 principal PROC
 	call lenum
-	call medianum
-principal ENDP
-
-lenum PROC
-	mov edx, OFFSET msg		; edx = primeira posicao da string msg
-	call WriteString		; Exibe msg
-	call ReadInt	 		; eax = numero do teclado
-	mov ebx,eax
-	inc cont				; ebx = eax
 inienq:						
 	cmp flag,ebx
 	je fimenq
 	add media,ebx
-	mov edx, OFFSET msg		; edx = primeira posicao da string msg
-	call WriteString		; Exibe msg
-	call ReadInt	 		; eax = numero do teclado
-	mov ebx,eax				; ebx = eax
-	inc cont
-	jmp inienq     			; Vai para iníenq
+	call lenum
+	add cont,1
+	jmp inienq     			
 fimenq:
+	call medianum
+principal ENDP
+
+lenum PROC
+	mov edx, OFFSET msg		
+	call WriteString		
+	call ReadInt
+	mov ebx,eax	
 	ret
 lenum ENDP
 
 medianum PROC
-	mov eax,cont
-	div media
+	mov edx,0
+	mov eax,media
+	div cont
 	mov edx, OFFSET msg2
+	call WriteString
 	call WriteDec
 	INVOKE ExitProcess,0
 medianum ENDP
