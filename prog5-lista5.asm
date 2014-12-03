@@ -35,8 +35,10 @@ entao:
 senao:
 	mov edx,OFFSET msg3
 	call WriteString
+	call Crlf
 	jmp inicio
 fimse:
 	INVOKE ExitProcess,0
 
 END principal
+
